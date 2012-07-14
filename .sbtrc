@@ -1,0 +1,8 @@
+alias test-core = ;project core;test;project root
+alias test-lift = ;project lift;test; project root
+
+alias clean-test-core = ;project core;clean;test;project root
+alias clean-test-lift = ;project lift;clean;test;project root
+
+alias clean-package = ;project root;clean;package
+
