@@ -25,3 +25,6 @@ project/project/
 .project
 .classpath
 
+# SBT Eclipse Generated stuff
+*/.settings/org.scala-ide.sdt.core.prefs
+
