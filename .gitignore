@@ -1,0 +1,23 @@
+.scala_dependencies
+target/
+.target/
+bin/
+*.class
+*.jar
+*.swap
+.~lock
+*.ser
+.scala_dependencies
+.bak
+.old
+*~
+*swp
+build/
+temp/
+tmp/
+*.o
+.cache
+
+# SBT Generated project stuff
+project/project/
+
