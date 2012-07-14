@@ -24,9 +24,6 @@ object Dependencies {
   val jodaTime = "joda-time" % "joda-time" % "2.0"
   val jodaConvert = "org.joda" % "joda-convert" % "1.2"
 
-  // jetty
-  val jettyVersion = "8.0.3.v20111011"
-  val jetty = "org.eclipse.jetty" % "jetty-webapp" % jettyVersion % "container"
   val logback = "ch.qos.logback" % "logback-classic" % "1.0.0"
 
   val scalatest = "org.scalatest" %% "scalatest" % "1.8" % "test"
@@ -37,7 +34,6 @@ object Dependencies {
   val testDeps = Seq(scalatest)
   val liftDeps = Seq(liftUtil, liftCommon, liftWebkit, liftMongoRecord, rogue)
   val loggingDeps = Seq(logback, groovy, liftCommon)
-  val jettyDeps = Seq(jetty)
   val jodaDeps = Seq(jodaTime, jodaConvert)
 }
 

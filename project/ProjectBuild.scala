@@ -29,12 +29,13 @@ object ProjectBuild extends Build {
   lazy val liftProject: Project = Project("lift", 
     file("scala-utilities-lift"),
     settings = buildSettings ++ Seq(libraryDependencies ++= liftProjectDeps,
-      name := "scala-utilities-lift"
+      name := "scala-utilities-lift",
+      scalaVersion := "2.9.1"
     )
-  ) dependsOn(coreProject)
+  )
 
   val commonDeps = testDeps ++ jodaDeps
   val coreProjectDeps = commonDeps
-  val liftProjectDeps = commonDeps ++ liftDeps ++ jettyDeps
+  val liftProjectDeps = commonDeps ++ liftDeps
 }
 
