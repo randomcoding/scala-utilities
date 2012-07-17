@@ -29,8 +29,7 @@ object ProjectBuild extends Build {
   lazy val liftProject: Project = Project("lift", 
     file("scala-utilities-lift"),
     settings = buildSettings ++ Seq(libraryDependencies ++= liftProjectDeps,
-      name := "scala-utilities-lift",
-      scalaVersion := "2.9.1"
+      name := "scala-utilities-lift"
     )
   )
 
