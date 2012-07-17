@@ -8,7 +8,10 @@ object Dependencies {
   val liftVersion = "2.4"
 
   // Functions to create dependencies
-  val liftDep = (componentId: String, scope: String ) => "net.liftweb" %% componentId % liftVersion % scope
+  val liftDep = (componentId: String, scope: String ) => {
+    val id = "%s_2.9.1".format(componentId)
+    "net.liftweb" % id % liftVersion % scope
+  }
 	
   // Actual dependencies
   // liftweb
@@ -18,7 +21,7 @@ object Dependencies {
   val liftMongoRecord = liftDep("lift-mongodb-record", "compile")
 
   // Rogue - used for Mongo DB Queries
-  val rogue = "com.foursquare" %% "rogue" % "1.1.1" intransitive()
+  val rogue = "com.foursquare" % "rogue_2.9.1" % "1.1.8" intransitive()
 
   // Joda time
   val jodaTime = "joda-time" % "joda-time" % "2.0"
@@ -27,6 +30,7 @@ object Dependencies {
   val logback = "ch.qos.logback" % "logback-classic" % "1.0.0"
 
   val scalatest = "org.scalatest" %% "scalatest" % "1.8" % "test"
+  val scalatestInCompile = "org.scalatest" %% "scalatest" % "1.8"
 
   val groovy = "org.codehaus.groovy" % "groovy" % "2.0.0"
 

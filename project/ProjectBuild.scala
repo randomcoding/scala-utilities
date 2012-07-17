@@ -36,6 +36,6 @@ object ProjectBuild extends Build {
 
   val commonDeps = testDeps ++ jodaDeps
   val coreProjectDeps = commonDeps
-  val liftProjectDeps = commonDeps ++ liftDeps
+  val liftProjectDeps = jodaDeps ++ liftDeps ++ Seq(scalatestInCompile)
 }
 
