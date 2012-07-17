@@ -14,7 +14,7 @@ These utilities are currently aimed at the use of Lift and/or MongoDB.
 ## Usage
 You will require [sbt](https://github.com/harrah/xsbt).
 
-Clone this project and then enter `sbt publish-local`
+Clone this project and then enter `sbt +publish-local` (this will run the cross build for Scala 2.9.1 and 2.9.2)
 
 Add a dependency to your other project's `build.sbt` file:
 
