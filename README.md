@@ -12,7 +12,7 @@ This provides utilities for core functionality, such as data time usage.
 These utilities are currently aimed at the use of Lift and/or MongoDB.
 
 ## Usage
-You will require [sbt](https://github.com/harrah/xsbt).
+You will require [sbt](https://github.com/sbt/sbt).
 
 Clone this project and then enter `sbt +publish-local` (this will run the cross build for Scala 2.9.1 and 2.9.2)
 
