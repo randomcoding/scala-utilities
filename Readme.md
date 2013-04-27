@@ -23,7 +23,7 @@ Add a dependency to your other project's `build.sbt` file:
 ```
 libraryDependencies ++= Seq(
   "uk.co.randomcoding" %% "scala-utilities-core" % "0.2.0",
-  "uk.co.randomcoding" %% "scala-utilities-lift" % "0.2.0"
+  "uk.co.randomcoding" %% "scala-utilities-lift" % "0.2.0" % "compile->compile;test->test"
 )
 ```
 

@@ -24,6 +24,7 @@ project/project/
 # IDE stuff
 .project
 .classpath
+.idea*/
 
 # SBT Eclipse Generated stuff
 */.settings/org.scala-ide.sdt.core.prefs
