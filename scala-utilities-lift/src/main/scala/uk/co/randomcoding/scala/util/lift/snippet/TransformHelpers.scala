@@ -132,7 +132,7 @@ object TransformHelpers {
    *
    * @param initialText The initial value to display in the text box
    * @param func The function to call on update (usually `onBlur`). Commonly sets the value of a variable in the snippet
-   * @param attrs Any additional attributes to apply to this text box
+   * @param linkAttrs Any additional attributes to apply to this text box
    */
   def styledAjaxText(initialText: String, func: ajaxWidgetCallback[String], linkAttrs: List[ElemAttr] = Nil): NodeSeq = {
     ajaxText(initialText, func, styledAttributes(linkAttrs): _*)
@@ -143,7 +143,7 @@ object TransformHelpers {
    *
    * @param initialText The initial value to display in the text box
    * @param func The function to call on form submit. Commonly sets the value of a variable in the snippet
-   * @param attrs Any additional attributes to apply to this password entry
+   * @param linkAttrs Any additional attributes to apply to this password entry
    */
   def styledPassword(initialText: String, func: standardWidgetCallback[String], linkAttrs: List[ElemAttr] = Nil): NodeSeq = {
     password(initialText, func, styledAttributes(linkAttrs): _*)
@@ -155,9 +155,9 @@ object TransformHelpers {
    * This maps a display string to a value string.
    *
    * @param values The ordered sequence of (display -> value) tuples to populate the combo box with
-   * @param initialText The initial value to display in the combo box. This should be on of the display values from `values`
+   * @param initialValue The initial value to display in the combo box. This should be on of the display values from `values`
    * @param func The function to call on form submit. Commonly sets the value of a variable in the snippet
-   * @param attrs Any additional attributes to apply to this combo box
+   * @param linkAttrs Any additional attributes to apply to this combo box
    */
   def styledSelect(values: Seq[(String, String)], initialValue: String, func: standardWidgetCallback[String], linkAttrs: List[ElemAttr] = Nil): NodeSeq = {
     select(values, Full(initialValue), func, styledAttributes(linkAttrs): _*)
@@ -169,10 +169,10 @@ object TransformHelpers {
    * This maps a display string to a value string.
    *
    * @param values The ordered sequence of (display -> value) tuples to populate the combo box with
-   * @param initialText The initial value to display in the combo box. This should be on of the display values from `values`
+   * @param initialValue The initial value to display in the combo box. This should be on of the display values from `values`
    * @param func The function to call on update (usually `onBlur`. Commonly sets the value of a variable in the snippet.
    * The input parameter to this function is the ''value'' part of the selected entry from `values`
-   * @param attrs Any additional attributes to apply to this combo box
+   * @param linkAttrs Any additional attributes to apply to this combo box
    */
   def styledAjaxSelect(values: Seq[(String, String)], initialValue: String, func: ajaxWidgetCallback[String], linkAttrs: List[ElemAttr] = Nil): NodeSeq = {
     ajaxSelect(values, Full(initialValue), func, styledAttributes(linkAttrs): _*)
@@ -184,10 +184,10 @@ object TransformHelpers {
    * Maps display strings to object values.
    *
    * @param values The ordered sequence of (display -> value) tuples to populate the combo box with
-   * @param initialText The initial value to display in the combo box. This should be on of the display values from `values`
+   * @param initialValue The initial value to display in the combo box. This should be on of the display values from `values`
    * @param func The function to call on update (usually `onBlur`. Commonly sets the value of a variable in the snippet.
    * The input parameter to this function is the ''value'' part of the selected entry from `values`
-   * @param attrs Any additional attributes to apply to this combo box
+   * @param linkAttrs Any additional attributes to apply to this combo box
    */
   def styledAjaxObjectSelect[T](values: Seq[(T, String)], initialValue: T, func: ajaxWidgetCallback[T], linkAttrs: List[ElemAttr] = Nil)(implicit mf: Manifest[T]): NodeSeq = {
     ajaxSelectObj(values, Full(initialValue), func, styledAttributes(linkAttrs): _*)
@@ -199,10 +199,10 @@ object TransformHelpers {
    * Maps display strings to object values.
    *
    * @param values The ordered sequence of (display -> value) tuples to populate the combo box with
-   * @param initialText The initial value to display in the combo box. This should be on of the display values from `values`
+   * @param initialValue The initial value to display in the combo box. This should be on of the display values from `values`
    * @param func The function to call on update (usually `onBlur`. Commonly sets the value of a variable in the snippet.
    * The input parameter to this function is the ''value'' part of the selected entry from `values`
-   * @param attrs Any additional attributes to apply to this combo box
+   * @param linkAttrs Any additional attributes to apply to this combo box
    */
   def styledObjectSelect[T](values: Seq[(T, String)], initialValue: T, func: standardWidgetCallback[T], linkAttrs: List[ElemAttr] = Nil)(implicit mf: Manifest[T]): NodeSeq = {
     selectObj(values, Full(initialValue), func, styledAttributes(linkAttrs): _*)
@@ -213,7 +213,7 @@ object TransformHelpers {
    *
    * @param buttonText The text to display on the button
    * @param func The function to call when the button is pressed
-   * @param attrs Any additional attributes to apply to this button
+   * @param linkAttrs Any additional attributes to apply to this button
    */
   def styledAjaxButton(buttonText: String, func: emptyAjaxWidgetCallback, linkAttrs: List[ElemAttr] = Nil): NodeSeq = {
     ajaxButton(Text(buttonText), func, styledAttributes(linkAttrs): _*)
@@ -257,7 +257,7 @@ object TransformHelpers {
    * Creates a date picker widget that takes the default styling.
    *
    * The date picker will inherit its configuration from the javascript used to set up the widget.
-   * See [[uk.co.randomcoding.partsdb.lift.snippet.jsJsScripts#calendarScript]] for the ''default'' configuration
+   * See [[uk.co.randomcoding.scala.util.lift.js.JsScripts#calendarScript]] for the ''default'' configuration
    *
    * This creates a `<span>` element around the actual data picker. This allows the outer `<span>` to inherit any properties from lift without affecting the date picker itself.
    *
@@ -280,7 +280,7 @@ object TransformHelpers {
    * Creates a AJAX date picker widget that takes the default styling.
    *
    * The date picker will inherit its configuration from the javascript used to set up the widget.
-   * See [[uk.co.randomcoding.partsdb.lift.snippet.jsJsScripts#calendarScript]] for the ''default'' configuration
+   * See [[uk.co.randomcoding.scala.util.lift.js.JsScripts#calendarScript]] for the ''default'' configuration
    *
    * This creates a `<span>` element around the actual data picker. This allows the outer `<span>` to inherit any properties from lift without affecting the date picker itself.
    *
