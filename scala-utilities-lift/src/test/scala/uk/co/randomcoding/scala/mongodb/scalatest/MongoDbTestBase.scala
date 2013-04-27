@@ -22,9 +22,10 @@ package uk.co.randomcoding.scala.mongodb.scalatest
 import scala.collection.JavaConversions._
 
 import org.scalatest.matchers.ShouldMatchers
-import org.scalatest.{ FunSuite, BeforeAndAfterEach, BeforeAndAfterAll }
+import org.scalatest.{GivenWhenThen, FunSuite, BeforeAndAfterEach, BeforeAndAfterAll}
 
 import net.liftweb.mongodb.{ MongoIdentifier, MongoDB, DefaultMongoIdentifier }
+import uk.co.randomcoding.scala.util.lift.mongodb.MongoConfig
 
 /**
  * A base class for all tests involving MongoDB usage.
@@ -39,7 +40,7 @@ import net.liftweb.mongodb.{ MongoIdentifier, MongoDB, DefaultMongoIdentifier }
  * @author RandomCoder <randomcoder@randomcoding.co.uk>
  *
  */
-abstract class MongoDbTestBase extends FunSuite with BeforeAndAfterEach with BeforeAndAfterAll with ShouldMatchers {
+abstract class MongoDbTestBase extends FunSuite with BeforeAndAfterEach with BeforeAndAfterAll with ShouldMatchers with GivenWhenThen {
 
   /**
    * Define the database name to use for testing
@@ -51,7 +52,7 @@ abstract class MongoDbTestBase extends FunSuite with BeforeAndAfterEach with Bef
   /**
    * Setup the test database
    */
-  override def beforeEach(): Unit = {
+  override def beforeEach() {
     MongoConfig.init(dbName)
     MongoDB.getDb(DefaultMongoIdentifier) should be('defined)
   }
@@ -59,10 +60,10 @@ abstract class MongoDbTestBase extends FunSuite with BeforeAndAfterEach with Bef
   /**
    * Drop any data in the test database
    */
-  override def afterEach(): Unit = {
+  override def afterEach() {
     object dbid extends MongoIdentifier { override val jndiName = dbName }
     val db = MongoDB.getDb(DefaultMongoIdentifier).get
-    db.getCollectionNames filterNot (_ startsWith "system.") foreach (db.getCollection(_).drop)
+    db.getCollectionNames filterNot (_ startsWith "system.") foreach (db.getCollection(_).drop())
     db.dropDatabase()
   }
 }
