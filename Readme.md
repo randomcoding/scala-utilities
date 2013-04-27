@@ -14,14 +14,16 @@ These utilities are currently aimed at the use of Lift and/or MongoDB.
 ## Usage
 You will require [sbt](https://github.com/sbt/sbt).
 
-Clone this project and then enter `sbt +publish-local` (this will run the cross build for Scala 2.9.1 and 2.9.2)
+The build is for Scala 2.10.x
+
+Clone this project and then enter `sbt publish-local`
 
 Add a dependency to your other project's `build.sbt` file:
 
 ```
 libraryDependencies ++= Seq(
-  "uk.co.randomcoding" %% "scala-utilities-core" % "0.1.0-SNAPSHOT",
-  "uk.co.randomcoding" %% "scala-utilities-lift" % "0.1.0-SNAPSHOT"
+  "uk.co.randomcoding" %% "scala-utilities-core" % "0.2.0",
+  "uk.co.randomcoding" %% "scala-utilities-lift" % "0.2.0"
 )
 ```
 
