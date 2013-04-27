@@ -37,9 +37,11 @@ import net.liftweb.util.Helpers._
 object TransformHelpers {
 
   /**
-   * A readonly element attribute
+   * A read only element attribute
    */
-  val readonly: ElemAttr = ("readonly", "readonly");
+  val readonly: ElemAttr = ("readonly", "readonly")
+
+  val enabledFalse: ElemAttr = ("enabled", "false")
 
   val noopFunction = () => ()
 

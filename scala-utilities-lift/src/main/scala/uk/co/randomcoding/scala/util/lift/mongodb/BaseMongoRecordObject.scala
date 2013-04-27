@@ -23,7 +23,6 @@ import org.bson.types.ObjectId
 import net.liftweb.mongodb.record.MongoMetaRecord
 import net.liftweb.mongodb.record.MongoRecord
 import net.liftweb.mongodb.record.field.ObjectIdPk
-import com.foursquare.rogue.Rogue
 
 /**
  * Provides common functionality for record companion objects to find matching records and find records by id.
