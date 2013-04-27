@@ -9,7 +9,7 @@ import com.typesafe.sbteclipse.core.EclipsePlugin._
 object BuildSettings {
 
   val buildOrganization = "uk.co.randomcoding"
-  val buildVersion = "0.2.0"
+  val buildVersion = "0.3.0-SNAPSHOT"
   val buildScalaVersion = "2.10.1"
 
   val buildSettings = Defaults.defaultSettings ++ Seq(
