@@ -18,7 +18,7 @@ object BuildSettings {
     scalaVersion := buildScalaVersion,
     parallelExecution in Test := false,
     shellPrompt := ShellPrompt.buildShellPrompt,
-    scalacOptions := Seq("-deprecation", "-unchecked"),
+    scalacOptions := Seq("-deprecation", "-unchecked", "-feature", "-language:implicitConversions"),
     EclipseKeys.createSrc := EclipseCreateSrc.Default,
     unmanagedSourceDirectories in Compile <<= (scalaSource in Compile)(Seq(_)),
     unmanagedSourceDirectories in Test <<= (scalaSource in Test)(Seq(_))

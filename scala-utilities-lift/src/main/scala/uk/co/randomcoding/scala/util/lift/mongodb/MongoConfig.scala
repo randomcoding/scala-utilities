@@ -122,12 +122,13 @@ object MongoConfig extends Logger {
     // TODO: This loop could/should be made to identify the element it wants and then use just that one
     var config: Option[MongoConnectionConfig] = None
 
-    ary foreach { mongoJson =>
-      val mongo = mongoJson.extract[CloudFoundryMongo]
-      val credentials = mongo.credentials
-      debug("Extracted CloudFoundry MongoDB: %s\nWith Credentials: %s".format(mongo, credentials))
-      config = Some(MongoConnectionConfig(credentials.hostname, credentials.port.toInt, credentials.username, credentials.password, credentials.db, true))
-    }
+    ary.foreach(mongoJson => {
+        val mongo = mongoJson.extract[CloudFoundryMongo]
+        val credentials = mongo.credentials
+        debug("Extracted CloudFoundry MongoDB: %s\nWith Credentials: %s".format(mongo, credentials))
+        config = Some(MongoConnectionConfig(credentials.hostname, credentials.port.toInt, credentials.username, credentials.password, credentials.db, true))
+      }
+    )
 
     debug("Using mongodb cloudfoundry config: %s".format(config))
     config
@@ -147,5 +148,5 @@ object MongoConfig extends Logger {
  * @throws IllegalArgumentException if the `dbName` parameter is empty
  */
 case class MongoConnectionConfig(host: String, port: Int, user: String, password: String, dbName: String, onCloudFoundry: Boolean) {
-  require(dbName.trim nonEmpty, "DB Name Cannot be empty")
+  require(dbName.trim.nonEmpty, "DB Name Cannot be empty")
 }
